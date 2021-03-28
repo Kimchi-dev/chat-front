@@ -1,0 +1,60 @@
+
+
+
+.chat-bubble{
+    display: block;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+.chat-author{
+    display: block;
+    padding: 10px 0;
+    text-align: left;
+}
+.chat-content{
+    background-color: burlywood;
+}
+.chat-time{
+    color: grey;
+    font-size: 9px;
+    vertical-align: text-bottom;
+    margin-left: 10px;
+
+}
+.chat-middle{
+    min-height: 300px;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgb(196, 215, 223);
+}
+
+/* 자신 스타일 */
+li.send{
+    padding-left: 70%;
+}
+li.send .chat-author{
+    display:none;
+}
+li.send .chat-content{
+    display: inline-block;
+    background-color: rgb(230, 230, 104);
+    padding: 5px 10px;
+    border-radius: 20px 0 20px 20px;
+}
+li.send .chat-time{
+    float: left;
+    margin-right: 10px;
+    top: 50%;
+}
+
+/* 상대방 스타일 */
+
+li.receive .chat-content{
+    display: inline-block;
+    background-color: white;
+    word-break: break-all;
+    padding: 5px 10px;
+    max-width: 60%;
+    border-radius: 0 20px 20px 20px;
+}
