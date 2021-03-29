@@ -8,10 +8,17 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "jqeury": "0.0.1-security",
+    "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-element-scroll-hook": "^1.1.0",
+    "react-redux": "^7.2.3",
     "react-scripts": "4.0.3",
     "react-stomp": "^5.1.0",
+    "redux": "^4.0.5",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
     "sockjs": "^0.3.21",
     "web-vitals": "^1.1.1"
   },
@@ -38,5 +45,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kimchi-dev/chat-front.git"
+  },
+  "author": "",
+  "license": "ISC"
 }

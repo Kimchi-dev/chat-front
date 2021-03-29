@@ -1,7 +1,7 @@
-import React from 'react'
+import React,{ useRef } from 'react'
 
+function Chat({ messages, currentUser }) {
 
-function Chat({ messages, currentUser }){
     const formattingTimeStamp = (timestamp) => {
         const date = new Date(timestamp);
 
@@ -11,19 +11,38 @@ function Chat({ messages, currentUser }){
         return `${hour}:${min}`;
     }
 
-    return(
-        <div className="chat-middle">
+    return (
+        <div className="chat-middle"  >
+            <ui className="middle-ul">
             {messages.map((msg) => (
                 <li
-                    className={`chat-bubble ${
-                        msg.author == currentUser.name ? "send" : "receive"
-                    }`}
-                    >
-                        <span className="chat-author">{msg.author}</span>
-                        <span className="chat-content">{msg.content}</span>
-                        <span className="chat-time">{formattingTimeStamp(msg.timestamp)}</span>
-                    </li>
+                    className={`chat-bubble ${msg.author === currentUser.name ? "send" : "receive"
+                        }`}
+                >
+                    {msg.author === currentUser.name &&
+                        <div>
+                            <div className="time-area">
+                                <span className="chat-time">{formattingTimeStamp(msg.timestamp)}</span>
+                            </div>
+                            <span className="chat-content">{msg.content}</span>
+                        </div>
+                    }
+                    {msg.author !== currentUser.name &&
+                        <div>
+                            <span className="chat-author">{msg.author}</span>
+                            <div>
+                                <span className="chat-content">{msg.content}</span>
+                                <div className="time-area">
+                                    <span className="chat-time">{formattingTimeStamp(msg.timestamp)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </li>
             ))}
+            </ui>
         </div>
     )
 }

@@ -1,17 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import Icon from '@material-ui/core/Icon'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { sendMessage } from '../_actions/message_action'
 
-const useStyles = makeStyles((theme) =>({
-    button: {
-        margin: theme.spacing(1),
-    },
-}))
 
-function Input({handleOnSubmit}){
+function Input({currentUser}){
+
+    const dispatch = useDispatch()
+
     const [msg, setMsg] = useState("")
+    const [user, setUser] = useState(null)
+
 
     const handleOnChange = (e) => {
         setMsg(e.target.value);
@@ -19,11 +19,26 @@ function Input({handleOnSubmit}){
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        handleOnSubmit(msg) 
+        handleOnSubmit() 
         setMsg("");
     }
 
-    const classes = useStyles()
+    const handleOnSubmit = async (e) => {
+        setUser(currentUser)
+
+
+
+        let message = {
+            author: user.name,
+            content: msg
+        }
+
+        dispatch(sendMessage(message))
+            .then(response =>{
+
+                
+            })
+    }
 
     return(
         <div className="chat-bottom">
@@ -34,10 +49,10 @@ function Input({handleOnSubmit}){
                     onChange={handleOnChange}
                     onKeyPress={(e) => {
                         if(e.key === "Enter"){
-                            handleSubmit(e)
+                            handleOnChange(e)
                         }
                     }}
-                    style={{width: "84%"}}
+                    style={{width: "73%"}}
                     />
                     <Button type="submit" variant="contained" color="primary"
                     style={{margin: "10px"}}

@@ -1,6 +1,4 @@
 
-
-
 .chat-bubble{
     display: block;
     margin: 10px 0;
@@ -11,9 +9,6 @@
     padding: 10px 0;
     text-align: left;
 }
-.chat-content{
-    background-color: burlywood;
-}
 .chat-time{
     color: grey;
     font-size: 9px;
@@ -22,7 +17,7 @@
 
 }
 .chat-middle{
-    min-height: 300px;
+    min-height: 400px;
     max-height: 400px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -31,22 +26,30 @@
 
 /* 자신 스타일 */
 li.send{
-    padding-left: 70%;
+    text-align-last: end;
 }
 li.send .chat-author{
     display:none;
 }
 li.send .chat-content{
     display: inline-block;
-    background-color: rgb(230, 230, 104);
+    background-color: rgb(247, 247, 93);
     padding: 5px 10px;
+    max-width: 60%;
     border-radius: 20px 0 20px 20px;
+    text-align-last: left;
 }
-li.send .chat-time{
-    float: left;
+li.send .time-area{
+    display: inline-block;
     margin-right: 10px;
-    top: 50%;
 }
+li.send .time-area span{
+    vertical-align: bottom;
+}
+li.send div{
+    display: inline-block;
+}
+
 
 /* 상대방 스타일 */
 
@@ -57,4 +60,8 @@ li.receive .chat-content{
     padding: 5px 10px;
     max-width: 60%;
     border-radius: 0 20px 20px 20px;
+}
+li.receive .time-area{
+    display: inline-block;
+    margin-right: 10px;
 }

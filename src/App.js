@@ -3,20 +3,22 @@ import SockJsClient from 'react-stomp'
 import chatApi from './services/chatapi'
 import './styles/styles.css'
 import { 
-  TextField,
-  Container,
-  Button } from '@material-ui/core'
+  Container} from '@material-ui/core'
 
 import Chat from './pages/Chat'
 import Input from './pages/Input'
 import Login from './pages/Login'
-function App() {
+import $ from 'jquery'
+
+
+function App(props) {
   const [messages , setMessages] = useState([])
   const [user, setUser] = useState(null)
 
   const onMessageReceived = (msg) => {
     console.log("New Message Received !!",msg)
     setMessages(messages.concat(msg))
+    console.log($('.middle-ul').scrollHeight)
   }
 
   const handleLoginSubmit = (name) => {
@@ -33,11 +35,13 @@ function App() {
         console.log(e)
       })
   }
+
+  
   return (
     <Container maxWidth="sm">
       {user !== null ? (
         <div className="chat-container">
-        <h1>Kafka CHAT</h1>
+        <h1>KIMCHI CHAT {user.name}님</h1>
           <SockJsClient
             url={"http://localhost:8080/my-chat/"}
             topics={['/topic/group']}
@@ -47,7 +51,7 @@ function App() {
             debug={false}
             />
             <Chat messages={messages} currentUser={user}/>
-            <Input handleOnSubmit={handleMessageSubmit} />
+            <Input handleOnSubmit={handleMessageSubmit} currentUser={user} />
         </div>
       ) : (
         <Login handleOnSubmit={handleLoginSubmit} />

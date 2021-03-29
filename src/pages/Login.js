@@ -16,7 +16,7 @@ function Login({handleOnSubmit }){
 
     return (
         <Container maxWidth="sm" style={{textAlign:"center"}}>
-            <h1>Kafka Chat</h1>
+            <h1>KIMCHI CHAT</h1>
             <form onSubmit={ handleSubmit }>
                 <TextField id="standard-basic" label="닉네임을 입력하세요." 
                 value={name}
